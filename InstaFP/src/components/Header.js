@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image , SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Image , SafeAreaView, Dimensions } from 'react-native';
 import Logo from "../images/logo.png";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 
 
-const Header = () => {
+export const TopBar = () => {
   return (
     <View style={styles.container}>
-       <View style={{height:50, flexDirection: "row" }}>
+       <View style={{height:50, flexDirection: "row",justifyContent: "space-between"}}>
         <Image style={styles.logo} source={Logo} />
-        <View style={styles.icons}>
+         <View style={styles.icons}>
           <Icon style={{marginHorizontal:10}} name="plus-square-o" size={30} color="black" />
           <Icon style={{marginHorizontal:10}} name="heart-o" size={30} color="black" />
           <Feather style={{marginHorizontal:10}} name="send" size={30} color="black" />
@@ -25,26 +27,21 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 10,
+    flexDirection: "column",
     
-    flexDirection : "column",
-    
-  },
+   },
   icons: {
-    flex: 1,
     height: 50,
-    
     justifyContent: "flex-end",
     alignItems: "center",
     flexDirection: "row",
     
    },
   logo: {
-    width: 150,
+    width: windowWidth* 0.381,   
     height: 50,
     marginLeft : 10,
    }
 });
 
-export default Header;
+export default TopBar;

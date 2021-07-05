@@ -1,11 +1,6 @@
 import React , { Component } from 'react';
-import { Text, View } from 'react-native';
-import Header from "./src/components/Header";
-import Story from "./src/components/Story";
-import Username from "./src/components/Username";
-import Timeline from "./src/components/Timeline";
-import Comment from "./src/components/Comment";
-import Buttons from "./src/components/Buttons";
+import { Text, View, StatusBar,SafeAreaView  } from 'react-native';
+import { Buttons, TopBar, Username, Story, Timeline, Comment } from "./src/components/index";
 
 
 
@@ -13,14 +8,18 @@ const App = () => {
   
    
      return (
-          <View>
-               <Header />
+              <SafeAreaView>
+               <StatusBar hidden={false} backgroundColor="white" barStyle="dark-content"  />
+                <View style={{height:"100%"}}>
+               <TopBar />
                <Story />
                <Username />
                <Timeline />
                <Comment />
                <Buttons/>
-          </View>
+               </View>
+               </SafeAreaView>
+          
      )
 };
 

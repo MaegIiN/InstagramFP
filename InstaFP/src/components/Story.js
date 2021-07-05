@@ -1,47 +1,58 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image , SafeAreaView, TouchableHighlight } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
+import Entypo from "react-native-vector-icons/Entypo"
 
 
+const Data = [{
+    uri: "https://picsum.photos/200/300",
+    username: "Loremipsum",
+    hidden:false
+    
+}, {
+    uri: "https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU",
+    username: "dolorsitamet",
+    hidden:true
+    },
+    
+       {
+    uri: "https://i.picsum.photos/id/660/200/300.jpg?hmac=j7s3I-0KukW6B1Vt4AJzCYxM8kbZz5kTMOEl9Y7zUOg",
+           username: "consectetu",
+    hidden:true
+    }
+    ,
+     {
+    uri: "https://i.picsum.photos/id/908/200/300.jpg?hmac=guEHon4cM5wVkD_yaCyg37gD09iEjrpqzKfo-YU-Iwc",
+         username: "Maecenasut",
+    hidden:true
+    }, {
+    uri: "https://i.picsum.photos/id/827/200/300.jpg?hmac=0Q7y5JGXuxSXgO7VUvdNhXC4yoAupOJiKmRS9RoPqs8",
+         username: "rhoncus",
+    hidden:true
+    }
+]
+const Child = ({uri,username,hidden}) => {
+    return (
+        <View style={{marginLeft:5, marginBottom:5,}}>
+            <TouchableHighlight
+                  style={styles.profileImgContainer}>
+                    <Image source={{ uri: uri }} style={[styles.StoryImage,{borderColor: 'green', borderWidth:2,  }]} />
+            </TouchableHighlight>
+            
+            {hidden ? null :  <Entypo style={styles.plusIcon} name="circle-with-plus" size={30}  color="#FFF" />}  
+            <Text style={styles.username}>{username}</Text>
+        </View>
+    );
+}
 
 
-
-const Story = () => {
+export const Story = () => {
 
     return (
         <View style={styles.container}>
-            <View style={{ height: 100, flexDirection: "row", alignItems: "center" }}>
-                
-                <TouchableHighlight
-                  style={[styles.profileImgContainer, {borderColor: 'green', borderWidth:0, marginLeft:10 }]}>
-                    <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.StoryImage} />
-                </TouchableHighlight>
-                <Icon style={styles.plusIcon} name="plus-circle" size={30} color="#39A2DB"/>
-                <TouchableHighlight
-                  style={[styles.profileImgContainer, { borderColor: 'green', borderWidth:3, marginLeft:10 }]}>
-                   <Image source={{ uri:"https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU" }} style={styles.StoryImage} />
-                </TouchableHighlight>
-                <TouchableHighlight
-                  style={[styles.profileImgContainer, { borderColor: 'green', borderWidth:3, marginLeft:10 }]}>
-                   <Image source={{ uri:"https://i.picsum.photos/id/660/200/300.jpg?hmac=j7s3I-0KukW6B1Vt4AJzCYxM8kbZz5kTMOEl9Y7zUOg" }} style={styles.StoryImage} />
-                </TouchableHighlight>
-                <TouchableHighlight
-                  style={[styles.profileImgContainer, { borderColor: 'green', borderWidth:3, marginLeft:10 }]}>
-                   <Image source={{ uri:"https://i.picsum.photos/id/908/200/300.jpg?hmac=guEHon4cM5wVkD_yaCyg37gD09iEjrpqzKfo-YU-Iwc" }} style={styles.StoryImage} />
-                </TouchableHighlight>
-                <TouchableHighlight
-                  style={[styles.profileImgContainer, { borderColor: 'green', borderWidth:3, marginLeft:10 }]}>
-                   <Image source={{ uri:"https://i.picsum.photos/id/827/200/300.jpg?hmac=0Q7y5JGXuxSXgO7VUvdNhXC4yoAupOJiKmRS9RoPqs8" }} style={styles.StoryImage} />
-                </TouchableHighlight>
-            </View>
-            <View style={[styles.username],{height: 50, flexDirection: "row", }}>
-                <Text style={styles.username}>Loremipsum</Text>
-                <Text style={styles.username}>dolorsitamet</Text>
-                <Text style={styles.username}>consectetu</Text>
-                <Text style={styles.username}>Maecenasut</Text>
-                <Text style={styles.username}>rhoncus</Text>
-
-            </View>
+            <View style={{flexDirection: "row", alignItems: "center" }}>
+                {Data.map((x,i) => <Child key={i} uri={x.uri} username={x.username} hidden={x.hidden}/>)}
+             </View>
         </View>
 
     );
@@ -51,36 +62,34 @@ const Story = () => {
 const styles = StyleSheet.create({
 
     container: {
-    flex: 1,
-    paddingTop: 50,
         flexDirection: "column",
-    
-    
-    },
+        marginVertical: 5,
+      },
     StoryImage: {
     height: 80,
     width: 80,
-    borderRadius: 40,
+    borderRadius: 80 / 2,
     },
-    profileImgContainer: {
-        width: 80,
-        height: 80,
-        borderRadius: 150 / 2,
-        overflow: "hidden",
-        borderWidth: 5,
-        borderColor: "red"
-    },
+    
     plusIcon: {
+        
         position: "absolute",
-        elevation: 1,
-        left: 60,
-        top: 60,
+        right: 5,
+        bottom: 10,
+        
+        color: "#0499f9",
+        backgroundColor: "white",
+        
+        borderRadius:30/2,
+        
+        
+        
     },
     username: {
         fontSize: 12,
         fontWeight: "200",
         marginHorizontal: 10,
-        paddingLeft : 5
+       
         
         
     }

@@ -5,13 +5,13 @@ import Entypo from "react-native-vector-icons/Entypo";
 
 
 
-const Username = () => {
+export const Username = () => {
     return (
         <View style={styles.container}>
-            <View style={{ height: 60, flexDirection: "row", alignItems: "center",  }}>
+            <View style={{flexDirection: "row", alignItems: "center",  }}>
                 <TouchableHighlight
-                  style={[styles.profileImgContainer, { borderColor: 'green', borderWidth:3, marginLeft:10 }]}>
-                   <Image source={{ uri:"https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU" }} style={styles.StoryImage} />
+                  style={[styles.profileImgContainer, { marginLeft:10 }]}>
+                    <Image source={{ uri: "https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU" }} style={[styles.StoryImage,{borderColor: 'green', borderWidth:2}]} />
                 </TouchableHighlight>
                 <Text style={styles.username}>dolorsitamet</Text>
             </View>
@@ -25,23 +25,16 @@ const Username = () => {
 
 const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    paddingTop: 120,
+    
+    
     flexDirection : "column",
     },
     StoryImage: {
     height: 40,
     width: 40,
-    borderRadius: 40,
+    borderRadius: 40/2,
     },
-    profileImgContainer: {
-        width: 40,
-        height: 40,
-        borderRadius: 150 / 2,
-        overflow: "hidden",
-        borderWidth: 5,
-        borderColor: "red"
-    },
+    
     username: {
         fontSize: 16,
         fontWeight: "800",

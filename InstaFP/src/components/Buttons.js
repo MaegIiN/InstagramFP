@@ -6,10 +6,10 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 
 
-const Buttons = () => {
+export const Buttons = () => {
     return (
         <View style={styles.container}>
-            <View style={{ height: 30, flexDirection:"row",marginTop:10,  justifyContent: "space-between",alignItems: "center"}}>
+            <View style={{  flexDirection:"row",justifyContent:"space-between",alignItems: "center",padding:5,marginVertical:10}}>
                 <Feather style={{ marginHorizontal: 20 }} name="home" size={30} color="black" />
                 <Feather style={{ marginHorizontal: 20 }} name="search" size={30} color="black" />
                 <Feather style={{ marginHorizontal: 20 }} name="video" size={30} color="black" />
@@ -23,13 +23,12 @@ const Buttons = () => {
 
 const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    paddingTop: 170,
-        flexDirection: "column",
-        borderWidth: 0.6,
+        position: "absolute",
+        bottom:0,
+    flexDirection: "column",
+    borderWidth: 0.6,
         borderColor: "#DDDDDD",
-    
-    
+    width:"100%",
     },
 
 });
