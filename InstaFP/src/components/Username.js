@@ -11,7 +11,7 @@ export const Username = () => {
             <View style={{flexDirection: "row", alignItems: "center",  }}>
                 <TouchableHighlight
                   style={[styles.profileImgContainer, { marginLeft:10 }]}>
-                    <Image source={{ uri: "https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU" }} style={[styles.StoryImage,{borderColor: 'green', borderWidth:2}]} />
+                    <Image source={{ uri: "https://i.picsum.photos/id/71/200/300.jpg?hmac=gynXVv0pTO33farflQTb9mpn-A6N5nt8t0_r9DEDNKU" }} style={[styles.StoryImage,{borderColor: 'white', borderWidth:2}]} />
                 </TouchableHighlight>
                 <Text style={styles.username}>dolorsitamet</Text>
             </View>
